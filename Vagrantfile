@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
-  config.vm.synced_folder '.', '/vagrant', type: 'nfs'
+  #config.vm.synced_folder '.', '/vagrant', type: 'nfs'
 
   # VirtualBox.
   config.vm.define "virtualbox" do |virtualbox|

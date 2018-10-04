@@ -1,17 +1,11 @@
 {
   "variables": {
-    "version": ""
+    "version": "{{ .uuid }}"
   },
   "provisioners": [
     {
-      "type": "shell",
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/ansible.sh"
-    },
-    {
-      "type": "ansible-local",
-      "playbook_file": "ansible/main.yml",
-      "galaxy_file": "requirements.yml"
+      "type": "ansible",
+      "playbook_file": "ansible/main.yml"
     },
     {
       "type": "shell",
@@ -28,7 +22,7 @@
       "boot_wait": "10s",
       "disk_size": 81920,
       "guest_os_type": "RedHat_64",
-      "headless": true,
+      "headless": false,
       "http_directory": "http",
       "iso_urls": [
         "CentOS-7-x86_64-Minimal-1804.iso",
